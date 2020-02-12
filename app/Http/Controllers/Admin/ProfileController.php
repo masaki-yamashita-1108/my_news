@@ -20,14 +20,14 @@ class ProfileController extends Controller
     public function create(Request $request)
     {
         // Varidationを行う
-      $this->validate($request, Profile::$rules);
+        $this->validate($request, Profile::$rules);
 
-      $profile = new Profile;
-      $form = $request->all();
+        $profile = new Profile;
+        $form = $request->all();
       
         // データベースに保存する
-      $profile->fill($form);
-      $profile->save();
+        $profile->fill($form);
+        $profile->save();
 
         return redirect('admin/profile/create');
     }
