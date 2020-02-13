@@ -11,7 +11,6 @@ use App\Profile;
 
 class ProfileController extends Controller
 {
-    //以下課題5により追記
     public function add()
     {
         return view('admin.profile.create');
@@ -19,6 +18,7 @@ class ProfileController extends Controller
     
     public function create(Request $request)
     {
+        
         // Varidationを行う
         $this->validate($request, Profile::$rules);
 
@@ -32,6 +32,18 @@ class ProfileController extends Controller
         return redirect('admin/profile/create');
     }
     
+    public function index(Request $request)
+    {
+        $cond_title = $request->cond_title;
+        if($cond_title!='') {
+            //検索されたら検索結果を取得する
+            $posts = Profile::where('title' ,$cond_title)->get();
+        } else {
+            //それ以外はすべての情報を取得する
+            $posts = Profile::all();
+        }
+        return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+    }
     
     
     public function edit()
