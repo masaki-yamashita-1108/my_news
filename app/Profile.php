@@ -14,5 +14,13 @@ class Profile extends Model
         'hobby' => 'required',
         'introduction' => 'required',
     );
+    
+    //以下を追記
+    //Profileモデルに関連づけを行う
+    public function profile_histories()
+    {
+        return $this->hasMany('App\ProfileHistory');
+    
+    }
 
 }
