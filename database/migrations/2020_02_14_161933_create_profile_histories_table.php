@@ -17,6 +17,7 @@ class CreateProfileHistoriesTable extends Migration
             $table->Increments('id');
             $table->integer('profile_id');
             $table->string('edited_at');
+            
             $table->timestamps();
         });
     }

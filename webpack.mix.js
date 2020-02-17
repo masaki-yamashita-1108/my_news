@@ -13,4 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/profile.scss', 'public/css');
+    .sass('resources/sass/profile.scss', 'public/css')
+    .sass('resources/sass/profile.scss', 'public/css')
+    .sass('resources/sass/front.scss', 'public/css') // 追記
+    .sass('resources/sass/profilefront.scss', 'public/css'); //課題にて追記
